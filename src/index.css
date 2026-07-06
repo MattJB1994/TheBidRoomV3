@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..900;1,300..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  /* One sans-serif family everywhere — no serif display, no mono labels. */
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Calm palette: warm off-white ground, ink text, a single indigo
+     accent. Semantic colours are reserved strictly (red=blocking,
+     amber=attention, green=done) and applied in components, not here. */
+  --color-canvas: #FAFAF8;      /* warm off-white background */
+  --color-ink: #1A1A2E;         /* primary text */
+  --color-accent: #4F46E5;      /* deep indigo — the only accent */
+
+  /* Raise the smallest type ramp so body/label text never drops below
+     ~13px. text-xs is the app's default small size. */
+  --text-xs: 0.8125rem;      /* 13px (was 12px) */
+  --text-xs--line-height: 1.125rem;
+}
+
+/* Warm ground applied globally so every screen shares the same calm
+   background rather than pure white / slate-50 patches. */
+html, body { background-color: var(--color-canvas); color: var(--color-ink); }
+
+/* A handful of dense captions/badges use arbitrary sub-12px sizes.
+   Enforce a readable floor: anything below 12px is lifted to 12px. */
+[class*="text-[8px]"],
+[class*="text-[9px]"],
+[class*="text-[10px]"],
+[class*="text-[11px]"] {
+  font-size: 0.75rem !important;   /* 12px floor */
+  line-height: 1rem !important;
+}
+
+/* Calm accent utilities — let components opt into the single indigo
+   accent without hard-coding hex values. */
+.text-accent { color: var(--color-accent); }
+.bg-accent { background-color: var(--color-accent); }
+.border-accent { border-color: var(--color-accent); }
