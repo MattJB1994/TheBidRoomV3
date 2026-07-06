@@ -1,0 +1,6 @@
+{
+  "name": "The Bid Room",
+  "description": "Structured bid and proposal workspace for engineering, rail, signaling, and technical advisory teams, engineered by Buckland Consulting Group.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_AI_API"]
+}
